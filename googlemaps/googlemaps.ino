@@ -18,7 +18,8 @@ float roll,pitch,rollF,pitchF=0;
 const char* googleApiKey = "AIzaSyAP9YLSDLSxlcB--h9Y_g9CYctxyuY-DRw";
 const char* ssid = "Mikrotik_Koders";
 const char* passwd = "1Qw23er4";
-
+const int id = 1;
+    
 WifiLocation location(googleApiKey);
 void setup() {
     Serial.begin(115200);
@@ -84,7 +85,7 @@ void loop() {
       Serial.println("Accuracy: " + String(loc.accuracy));
       Serial.println("==============================================");*/
       //get запрос здесь
-      //char *gps = "GET / HTTP/1.1\r\nHost:\r\"" + char(loc.lat, 7) + "" + char(loc.lon, 7) + "\r\n\r\n";
+      //char *gps = "GET / HTTP/1.1\r\nHost:\r\"" + char(loc.lat, 7) + "" + char(loc.lon, 7) + "\r\n\r\n"; + id
       //wifi.send((const uint8_t*)hello, strlen(hello));
       previousMillis = time;
    }
@@ -113,7 +114,7 @@ void loop() {
    if (rollF > rollf_on || pitchF > pitchf_on){
     Serial.print("SOS");
     // get запросы при резком смене дислокации
-    //char *gps = "GET / HTTP/1.1\r\nHost:\r\SOS\r\n\r\n";
+    //char *gps = "GET / HTTP/1.1\r\nHost:\r\SOS\r\n\r\n"; + id
     //wifi.send((const uint8_t*)hello, strlen(hello));
    }
 }
