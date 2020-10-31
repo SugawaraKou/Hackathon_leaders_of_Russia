@@ -89,7 +89,8 @@ void loop() {
       //wifi.send((const uint8_t*)hello, strlen(hello));
       previousMillis = time;
    }
-   
+   float rollf_on = rollF + 50;
+   float pitchf_on = pitchF + 50;
    Wire.beginTransmission(ADXL345);
    Wire.write(0x32); // Start with register 0x32 (ACCEL_XOUT_H)
    Wire.endTransmission(false);
@@ -109,8 +110,6 @@ void loop() {
    //Serial.print(rollF);
    //Serial.print("/");
    //Serial.println(pitchF);
-   float rollf_on = rollF + 50;
-   float pitchf_on = pitchF + 50;
    if (rollF > rollf_on || pitchF > pitchf_on){
     Serial.print("SOS");
     // get запросы при резком смене дислокации
